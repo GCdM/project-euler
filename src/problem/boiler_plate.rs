@@ -9,6 +9,9 @@ mod pX_tests {
 
     #[test]
     fn euler_example() {
-        assert_eq!(true, true)
+        assert_eq!(
+            (), 
+            solve(),
+        )
     }
 }

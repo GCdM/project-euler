@@ -23,8 +23,8 @@ fn main() {
     /* Problem 2:
         Even Fibonacci numbers */
     let input_three = 600851475143;
-    println!("
-        Solution 3: ({}) -> {}",
+    println!(
+        "Solution 3: ({}) -> {}",
         input_three,
         problem::three::solve(input_three),
     );

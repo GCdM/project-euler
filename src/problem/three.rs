@@ -7,18 +7,38 @@
 */
 
 pub fn solve(value: u64) -> u64 {
-
-    0
+    let prime_factors = calculate_prime_factors(value);
+    
+    *prime_factors.last().unwrap()
 }
 
-fn calculate_factors(value: u64) -> Vec<u64> {
+fn calculate_prime_factors(number: u64) -> Vec<u64> {
+    let mut prime_factors: Vec<u64> = Vec::new();
+    let mut upper_limit = number / 2;
+    let mut divisor = 2;
 
-    vec![]
+    while divisor < upper_limit {
+        if number % divisor == 0 && is_prime(&divisor) {
+            prime_factors.push(divisor);
+        }
+
+        divisor += 1;
+        upper_limit = number / divisor;
+    }
+
+    prime_factors
 }
 
 fn is_prime(number: &u64) -> bool {
+    let upper_limit = number / 2;
 
-    false
+    for x in 2..upper_limit {
+        if number % x == 0 {
+            return false;
+        }
+    }
+
+    true
 }
 
 #[cfg(test)]
@@ -42,10 +62,10 @@ mod p3_tests {
     }
 
     #[test]
-    fn gets_correct_factors() {
+    fn calculates_correct_prime_factors() {
         assert_eq!(
-            vec![5, 7, 13, 29, 35, 65, 91, 145, 203, 377, 455, 1015, 1885, 2639],
-            calculate_factors(13195),
+            vec![5, 7, 13, 29],
+            calculate_prime_factors(13195),
         );
     }
 

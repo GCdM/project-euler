@@ -1,9 +1,9 @@
 /* Problem 1: 
     Multiples of 3 and 5
 
-If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+    If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
-Find the sum of all the multiples of 3 or 5 below 1000.
+    Find the sum of all the multiples of 3 or 5 below 1000. 
 */
 
 pub fn solve(upper_limit: i32) -> i32 {
@@ -27,7 +27,7 @@ fn is_divisible_by_5(value: &i32) -> bool {
 }
 
 #[cfg(test)]
-mod tests {
+mod p1_tests {
     use super::*;
 
     #[test]

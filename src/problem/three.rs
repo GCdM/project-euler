@@ -30,12 +30,16 @@ fn calculate_prime_factors(number: u64) -> Vec<u64> {
 }
 
 fn is_prime(number: &u64) -> bool {
-    let upper_limit = number / 2;
+    let mut upper_limit = number / 2;
+    let mut divisor = 2;
 
-    for x in 2..upper_limit {
-        if number % x == 0 {
-            return false;
+    while divisor < upper_limit {
+        if number % divisor == 0 {
+            return false
         }
+
+        divisor += 1;
+        upper_limit = number / divisor;
     }
 
     true

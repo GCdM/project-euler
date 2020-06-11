@@ -9,18 +9,37 @@
 */
 
 pub fn solve(upper_limit: i32) -> i32 {
+    let sequence = fibonacci_sequence_to(upper_limit);
+    
+    let mut sum = 0;
+    for number in sequence {
+        if is_even(&number) {
+            sum += number;
+        }
+    }
 
-    0
+    sum
 }
 
 fn fibonacci_sequence_to(upper_limit: i32) -> Vec<i32> {
+    let mut sequence: Vec<i32> = vec![1, 2];
 
-    vec![1, 2, 3]
+    let mut first_value = 1;
+    let mut second_value = 2;
+    let mut sum = first_value + second_value; 
+    
+    while sum < upper_limit {
+        sequence.push(sum);
+        first_value = second_value;
+        second_value = sum;
+        sum = first_value + second_value;
+    }
+
+    sequence
 }
 
 fn is_even(number: &i32) -> bool {
-
-    true
+    number % 2 == 0
 }
 
 #[cfg(test)]
